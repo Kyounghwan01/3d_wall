@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>3D wall</title>
+  </head>
+  <body>
+    <div class="progress-bar-con">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="select-character">
+      <button
+        class="select-character-btn select-character-btn-ilbuni"
+        data-char="ilbuni"
+      ></button>
+      <button
+        class="select-character-btn select-character-btn-ragirl"
+        data-char="ragirl"
+      ></button>
+    </div>
+
+    <div class="world">
+      <div class="stage">
+        <div class="house">
+          <section class="wall wall-left">
+            <p style="font-size: 5rem">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat,
+              minus reprehenderit. Eum tempora, similique itaque autem eligendi
+              beatae, quidem magnam aspernatur, provident eveniet facilis dolor
+              nihil. Possimus natus tempore placeat!
+            </p>
+          </section>
+          <section class="wall wall-right">
+            <p style="font-size: 5rem; transform: rotate(-5deg)">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+              ad reprehenderit alias hic voluptatum natus vitae
+            </p>
+          </section>
+          <section class="wall wall-front wall-front-a">
+            <div class="wall-content">
+              <h2 class="wall-title">안녕하세요</h2>
+            </div>
+          </section>
+          <!-- 안녕하세요 벽 : 컨텐츠패널 : wall-front -->
+          <section class="wall wall-front wall-front-b">
+            <div class="wall-content">
+              <h2 class="wall-title">Hello</h2>
+            </div>
+          </section>
+          <section class="wall wall-front wall-front-c">
+            <div class="wall-content">
+              <h2 class="wall-title">Hola</h2>
+            </div>
+          </section>
+          <section class="wall wall-front wall-front-d">
+            <div class="wall-content">
+              <h2 class="wall-title">곤니찌와</h2>
+            </div>
+          </section>
+        </div>
+        <!--// house -->
+        <!-- <div class="character" data-direction="right">
+
+        </div> -->
+        
+        <!-- <div class="character" data-direction="right">
+          <div class="character-face-con character-head">
+            <div class="character-face character-head-face face-front"></div>
+            <div class="character-face character-head-face face-back"></div>
+          </div>
+          <div class="character-face-con character-torso">
+            <div class="character-face character-torso-face face-front"></div>
+            <div class="character-face character-torso-face face-back"></div>
+          </div>
+          <div class="character-face-con character-arm-right">
+            <div class="character-face character-arm-face face-front"></div>
+            <div class="character-face character-arm-face face-back"></div>
+          </div>
+          <div class="character-face-con character-arm-left">
+            <div class="character-face character-arm-face face-front"></div>
+            <div class="character-face character-arm-face face-back"></div>
+          </div>
+          <div class="character-face-con character-leg-right">
+            <div class="character-face character-leg-face face-front"></div>
+            <div class="character-face character-leg-face face-back"></div>
+          </div>
+          <div class="character-face-con character-leg-left">
+            <div class="character-face character-leg-face face-front"></div>
+            <div class="character-face character-leg-face face-back"></div>
+          </div>
+        </div> -->
+        <!-- 캐릭터 놓이는 곳 -->
+      </div>
+      <!--// stage -->
+    </div>
+    <!--// world -->
+    <script src="./character.js"></script>
+    <script src="./wall3d.js"></script>
+  </body>
+</html>
