@@ -26,7 +26,12 @@ body {
   -webkit-overflow-scrolling: touch;
   background-color: #fff000;
   height: 500vw;
+  transition: 0.5s;
 }
+
+/* body[data-char='ragirl']{
+    background-color: #ff7200;  
+} */
 
 .world {
   /* 1, 공간자체를 3d로 perspective */
@@ -221,8 +226,8 @@ body[data-char='ragirl'] .character-head {
     width: calc(920 / 948 * 100%);
     height: calc(750 / 1340 * 100%);
 }
-body[data-char='ragirl'] .character-head-face.face-front { background-image: url('../images/ragirl_head_front.png'); }
-body[data-char='ragirl'] .character-head-face.face-back { background-image: url('../images/ragirl_head_back.png'); }
+body[data-char='ragirl'] .character-head-face.face-front { background-image: url('./images/ragirl_head_front.png'); }
+body[data-char='ragirl'] .character-head-face.face-back { background-image: url('./images/ragirl_head_back.png'); }
 body[data-char='ragirl'] .character-torso {
     left: calc(273 / 948 * 100%);
     top: calc(630 / 1340 * 100%);
@@ -231,8 +236,8 @@ body[data-char='ragirl'] .character-torso {
     height: calc(444 / 1340 * 100%);
     transform-origin: center center;
 }
-body[data-char='ragirl'] .character-torso-face.face-front { background-image: url('../images/ragirl_body_front.png'); }
-body[data-char='ragirl'] .character-torso-face.face-back { background-image: url('../images/ragirl_body_back.png'); }
+body[data-char='ragirl'] .character-torso-face.face-front { background-image: url('./images/ragirl_body_front.png'); }
+body[data-char='ragirl'] .character-torso-face.face-back { background-image: url('./images/ragirl_body_back.png'); }
 body[data-char='ragirl'] .character-arm-right {
     left: calc(134 / 948 * 100%);
     top: calc(709 / 1340 * 100%);
@@ -240,8 +245,8 @@ body[data-char='ragirl'] .character-arm-right {
     height: calc(300 / 1340 * 100%);
     transform-origin: right top;
 }
-body[data-char='ragirl'] .character-arm-right .face-front { background-image: url('../images/ragirl_arm_0_front.png'); }
-body[data-char='ragirl'] .character-arm-right .face-back { background-image: url('../images/ragirl_arm_1_back.png'); }
+body[data-char='ragirl'] .character-arm-right .face-front { background-image: url('./images/ragirl_arm_0_front.png'); }
+body[data-char='ragirl'] .character-arm-right .face-back { background-image: url('./images/ragirl_arm_1_back.png'); }
 body[data-char='ragirl'] .character-arm-left {
     left: calc(675 / 948 * 100%);
     top: calc(709 / 1340 * 100%);
@@ -249,8 +254,8 @@ body[data-char='ragirl'] .character-arm-left {
     height: calc(300 / 1340 * 100%);
     transform-origin: left top;
 }
-body[data-char='ragirl'] .character-arm-left .face-front { background-image: url('../images/ragirl_arm_1_front.png'); }
-body[data-char='ragirl'] .character-arm-left .face-back { background-image: url('../images/ragirl_arm_0_back.png'); }
+body[data-char='ragirl'] .character-arm-left .face-front { background-image: url('./images/ragirl_arm_1_front.png'); }
+body[data-char='ragirl'] .character-arm-left .face-back { background-image: url('./images/ragirl_arm_0_back.png'); }
 body[data-char='ragirl'] .character-leg-right {
     left: calc(290 / 948 * 100%);
     top: calc(1075 / 1340 * 100%);
@@ -258,8 +263,8 @@ body[data-char='ragirl'] .character-leg-right {
     height: calc(264 / 1340 * 100%);
     transform-origin: center top;
 }
-body[data-char='ragirl'] .character-leg-right .face-front { background-image: url('../images/ragirl_leg_0.png'); }
-body[data-char='ragirl'] .character-leg-right .face-back { background-image: url('../images/ragirl_leg_1.png'); }
+body[data-char='ragirl'] .character-leg-right .face-front { background-image: url('./images/ragirl_leg_0.png'); }
+body[data-char='ragirl'] .character-leg-right .face-back { background-image: url('./images/ragirl_leg_1.png'); }
 body[data-char='ragirl'] .character-leg-left {
     left: calc(474 / 948 * 100%);
     top: calc(1075 / 1340 * 100%);
@@ -267,8 +272,8 @@ body[data-char='ragirl'] .character-leg-left {
     height: calc(264 / 1340 * 100%);
     transform-origin: center top;
 }
-body[data-char='ragirl'] .character-leg-left .face-front { background-image: url('../images/ragirl_leg_1.png'); }
-body[data-char='ragirl'] .character-leg-left .face-back { background-image: url('../images/ragirl_leg_0.png'); }
+body[data-char='ragirl'] .character-leg-left .face-front { background-image: url('./images/ragirl_leg_1.png'); }
+body[data-char='ragirl'] .character-leg-left .face-back { background-image: url('./images/ragirl_leg_0.png'); }
 
 /* character button */
 .select-character {
@@ -284,6 +289,7 @@ body[data-char='ragirl'] .character-leg-left .face-back { background-image: url(
     height: 40px;
     margin-left: 5px;
     border: 0;
+    /* 백그라운드 투명하게 */
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -292,17 +298,20 @@ body[data-char='ragirl'] .character-leg-left .face-back { background-image: url(
     transition: 0.5s;
 }
 .select-character-btn-ilbuni {
-    background-image: url('../images/ilbuni_head_front.png');
+    background-image: url('./images/ilbuni_head_front.png');
     background-size: 36px auto;
 }
 .select-character-btn-ragirl {
-    background-image: url('../images/ragirl_head_front.png');
+    background-image: url('./images/ragirl_head_front.png');
     opacity: 0.5;
 }
+/* 바디 캐릭터가 라걸이되면 투명도 0.5 */
 body[data-char='ragirl'] .select-character-btn-ilbuni {
     opacity: 0.5;
 }
+/* 해당되는 것만 투명도를 1로 올린다 */
 body[data-char='ilbuni'] .select-character-btn-ilbuni,
 body[data-char='ragirl'] .select-character-btn-ragirl {
     opacity: 1;
 }
+

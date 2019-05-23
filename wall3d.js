@@ -3,6 +3,7 @@
   const houseElem = document.querySelector(".house");
   const stageElem = document.querySelector(".stage");
   const barElem = document.querySelector(".progress-bar");
+  const selectCharacterElem = document.querySelector(".select-character");
   const mousePos = { x: 0, y: 0 };
   //2.1 스크롤 할 수 있는 범위 (body높이(500vw) - 스크롤바(창높이))
   let maxScrollValue;
@@ -33,7 +34,7 @@
 
   //5. 창 사이즈에 따라 maxscrollvalue 리뉴얼
   window.addEventListener("resize", resizeHandler);
-  resizeHandler();
+  
 
   stageElem.addEventListener("click", function(e) {
     //8.1 클릭시 마우스의 x위치에 만들기 -> e.clientX / window.innerWidth * 100
@@ -41,8 +42,22 @@
     
     //8. stageElem에 클릭하면 만든 캐릭터 어펜드차일드
     new Character({
-        xPos: e.clientX / window.innerWidth * 100
+        xPos: e.clientX / window.innerWidth * 100,
+        speed: Math.random() *0.8
     });
-    
   });
+
+  selectCharacterElem.addEventListener('click',function(e){
+    
+    const value = e.target.getAttribute('data-char');
+    console.log(value);
+    document.body.setAttribute('data-char',value);
+    // if(value == 'ragirl'){
+    //   document.body.style.backgroundColor = '#333';
+    // }else{
+    //   document.body.style.backgroundColor = '#fff000';
+    // }
+  });
+
+  resizeHandler();
 })();

@@ -36,7 +36,11 @@ function Character(info) {
   //바로 이전(마지막) 스크롤 위치
   this.lastScrollTop = 0;
   this.xPos = info.xPos;
-  this.speed = 0.51;
+  this.speed = info.speed;
+  this.direction;
+  //좌우 이동 중인지 아닌지를 판별하는 속성 : 이동중 : true
+  this.runningState = false;
+  this.refId;
   this.init();
 }
 
@@ -72,22 +76,56 @@ Character.prototype = {
     });
 
     //11. 캐릭터 좌우 이동
-    window.addEventListener("keydown",function(e){
-        if(e.keyCode === 37){
-            //왼쪽
-            self.mainElem.setAttribute("data-direction", "left");
-            //누르는 동안 걸어가기
-            self.mainElem.classList.add("running");
-            self.xPos = self.xPos - self.speed;
-            self.mainElem.style.left = self.xPos + '%';
-        } else if(e.keyCode === 39){
-            self.mainElem.setAttribute("data-direction", "right");
-            self.mainElem.classList.add("running");
-        }
-    })
+    window.addEventListener("keydown", function(e) {
+      if (self.runningState) return;
 
-    window.addEventListener('keyup',function(e){
-        self.mainElem.classList.remove("running");
-    })
+      if (e.keyCode === 37) {
+        //왼쪽
+        self.direction = "left";
+        self.mainElem.setAttribute("data-direction", "left");
+        //누르는 동안 걸어가기
+        self.mainElem.classList.add("running");
+        // self.xPos = self.xPos - self.speed;
+        // self.mainElem.style.left = self.xPos + '%';
+        self.run(self);
+        self.runningState = true;
+      } else if (e.keyCode === 39) {
+        self.direction = "right";
+        // self.xPos = self.xPos + self.speed;
+        // self.mainElem.style.left = self.xPos + '%';
+        self.mainElem.setAttribute("data-direction", "right");
+        self.mainElem.classList.add("running");
+        self.run(self);
+        self.runningState = true;
+      }
+    });
+
+    window.addEventListener("keyup", function(e) {
+      //running 취소
+      self.mainElem.classList.remove("running");
+      //refId에 값이 찍히면 앞으로 가는거 취소
+      cancelAnimationFrame(self.refId);
+      //다시 가는 준비를 위해 false로
+      self.runningState = false;
+    });
+  },
+  run: function(self) {
+    
+    if (self.direction === "left") {
+      self.xPos -= self.speed;
+    } else if (self.direction === "right") {
+      self.xPos += self.speed;
+    }
+    if(self.xPos < 2){
+        self.xPos = 2;
+    }else if(self.xPos > 88){
+        self.xPos = 88;
+    }
+    //self가 character가리키다가 window를 가리킨다. : requestAnimationFrame이거 때문인데 컨텍스트 때문에 this가 가리키는 애가 바뀜
+    self.mainElem.style.left = self.xPos + "%";
+
+    self.refId = requestAnimationFrame(function() {
+      self.run(self);
+    });
   }
 };
